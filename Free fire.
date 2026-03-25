@@ -11,7 +11,8 @@ Specification: Servers are deployed in over 20+ global regions (e.g., Mumbai, Sa
 Instance Specs (Estimated): * vCPU: 8 to 16 Cores (High clock speed is prioritized over core count for game logic).
 RAM: 32GB to 64GB DDR4/DDR5.
 Network: 10 Gbps dedicated throughput per rack.
-Protocol: UDP (User Datagram Protocol). Unlike a website that uses TCP, games use UDP because it's faster. If a packet is lost, the server doesn't wait; it just sends the next one.
+Protocol: UDP (User Datagram Protocol). Unlike a website that uses TCP, games use UDP because it's faster. If a packet is lost, the server doesn't
+wait; it just sends the next one.
 --------------------------------------------------------------------------------------------
 
 Amazon GameLift (AWS GameLift):
@@ -45,7 +46,8 @@ Use Case: To store "Hot Data" like your current lobby status or active "double X
 
 Amazon Aurora (AWS Aurora):
 
-AWS Aurora is a high-performance relational database service provided by AWS, compatible with MySQL and PostgreSQL, designed for cloud applications needing high speed and availability.
+AWS Aurora is a high-performance relational database service provided by AWS, compatible with MySQL and PostgreSQL, designed for cloud applications
+needing high speed and availability.
 
 In short:
 Managed relational database in AWS ☁️
@@ -93,11 +95,13 @@ When you hit "Update," you are downloading from a server maybe only 10km away fr
 ----------------------------------------------------------------------------------------------------------------
 
 5. Security & Anti-Cheat
-DDoS Protection: AWS Shield or Google Cloud Armor. High-end games are constant targets for attacks; these services scrub "bad" traffic before it hits the game server.
+DDoS Protection: AWS Shield or Google Cloud Armor. High-end games are constant targets for attacks; these services scrub "bad" traffic before it hits
+the game server.
 
 Anti-Cheat Logic: AI/ML at the Edge.
 
-Specification: Uses TensorFlow models running on the backend to analyze "Player Vectors." If a player moves faster than the physics engine allows (Speed Hack), the server logs the telemetry and issues a flag.
+Specification: Uses TensorFlow models running on the backend to analyze "Player Vectors." If a player moves faster than the physics engine allows (Speed Hack),
+the server logs the telemetry and issues a flag.
 --------------------------------------------------------------------------------------------------------------
 
 Basic Cloud Services Used (The "Notes" Section)
@@ -106,7 +110,8 @@ While I mentioned high-end services like Spanner, the "bread and butter" of the 
 
 A. Compute: AWS EC2 / Google Compute Engine
 Usage: This is where the actual game "Room" lives. When you enter a match, a small portion of an EC2 instance is carved out for your 50-player group.
-Instance Type: They usually use C5 or C6g (Graviton) instances. These are "Compute Optimized" because game logic needs high-speed single-core performance more than it needs lots of slow cores.
+Instance Type: They usually use C5 or C6g (Graviton) instances. These are "Compute Optimized" because game logic needs high-speed single-core performance
+more than it needs lots of slow cores.
 
 B. Storage: AWS S3 / Google Cloud Storage
 Usage: S3 is not used during the match (it's too slow). It’s used to store Static Assets.
@@ -115,7 +120,8 @@ it pulls these files from S3 and sends them to the CDN (Content Delivery Network
 
 C. Database: AWS RDS / DynamoDB
 Usage: Managing the player's "State."
-RDS (Relational): Used for things that need "Transactions," like buying Diamonds. You can't have a crash halfway through a purchase, so RDS ensures the data is written perfectly.
+RDS (Relational): Used for things that need "Transactions," like buying Diamonds. You can't have a crash halfway through a purchase, so RDS ensures the data
+is written perfectly.
 DynamoDB (NoSQL): Used for the Leaderboard and Friend Lists. It is incredibly fast at reading simple "Key-Value" data (e.g., "What is PlayerX's rank?").
 
 
@@ -126,7 +132,8 @@ ElastiCache keeps this info in RAM, allowing the server to handle millions of "O
 
 
 E. Elastic Load Balancing (ALB/NLB)
-Usage: When millions of players hit "Login" at the same time, the Load Balancer acts like a traffic cop. It distributes the login requests across 100+ different login servers so no single server crashes.
+Usage: When millions of players hit "Login" at the same time, the Load Balancer acts like a traffic cop. It distributes the login requests across 100+ different
+login servers so no single server crashes.
 
 F. Amazon SNS / SES (Simple Notification/Email)
 Usage: These are used for Push Notifications.
@@ -134,4 +141,5 @@ Example: When the "New Mystery Shop is Live!" notification pops up on your phone
 
 G. CloudWatch / Prometheus
 Usage: Monitoring & Alerting.
-Details: If a server in South America starts lagging or its CPU hits 95%, CloudWatch sends an automatic alert to Garena’s "NOC" (Network Operations Center) so they can fix it before players notice.
+Details: If a server in South America starts lagging or its CPU hits 95%, CloudWatch sends an automatic alert to Garena’s "NOC" (Network Operations Center) 
+so they can fix it before players notice.
