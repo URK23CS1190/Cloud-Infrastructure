@@ -7,3 +7,11 @@ Web App / Mobile App → Used to provide user interface for watching, uploading 
 HTML5 Video Player → Used to stream videos directly in browser without plugins → Used when cross-platform video playback is required.
 
 Google Front End (GFE) → Entry point server that receives user requests → Used when global applications need a secure edge entry layer.
+----------------------------------------------------------------------------------------------------------------------------------------
+2. DNS + Routing Layer
+
+Google DNS → Converts youtube.com into IP address → Used when applications need domain name resolution.
+
+Anycast Routing → Routes users to nearest data center → Used when latency must be minimized globally.
+
+Edge POP Servers → First contact servers near users → Used when reducing response delay is critical.
