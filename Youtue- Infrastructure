@@ -1,0 +1,7 @@
+1. Client Layer
+
+Web App / Mobile App → Used to provide user interface for watching, uploading and interacting with videos → Used when applications must support multi-device access.
+
+HTML5 Video Player → Used to stream videos directly in browser without plugins → Used when cross-platform video playback is required.
+
+Google Front End (GFE) → Entry point server that receives user requests → Used when global applications need a secure edge entry layer.
