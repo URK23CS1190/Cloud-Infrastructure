@@ -32,3 +32,17 @@ API Gateway → Routes requests to backend services → Used when microservices 
 Authentication Service → Validates users → Used when login systems exist.
 
 Rate Limiter → Prevents abuse → Used when APIs must prevent spam or attacks.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+5. Microservices Layer
+
+User Service → Manages profiles and subscriptions → Used when user management is required.
+
+Video Metadata Service → Stores video info → Used when managing video data.
+
+Comment Service → Handles comments → Used when social interaction features exist.
+
+Search Service → Processes search queries → Used when applications require search functionality.
+
+Recommendation Service → Suggests videos → Used when AI personalization is needed.
