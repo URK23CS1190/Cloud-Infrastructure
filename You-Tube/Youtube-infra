@@ -15,3 +15,20 @@ Google DNS → Converts youtube.com into IP address → Used when applications n
 Anycast Routing → Routes users to nearest data center → Used when latency must be minimized globally.
 
 Edge POP Servers → First contact servers near users → Used when reducing response delay is critical.
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Load Balancing Layer
+
+Maglev Load Balancer → Distributes traffic across backend servers → Used when handling millions of concurrent users.
+
+Global Load Balancer → Routes traffic between regions → Used when multi-region failover is required.
+
+Health Check Services → Detects failed servers → Used when high availability is needed.
+----------------------------------------------------------------------------------------------------------------------------------------
+4. API Gateway Layer
+
+API Gateway → Routes requests to backend services → Used when microservices must be centrally managed.
+
+Authentication Service → Validates users → Used when login systems exist.
+
+Rate Limiter → Prevents abuse → Used when APIs must prevent spam or attacks.
